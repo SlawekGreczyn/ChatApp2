@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>chat</title>
+    <link rel="stylesheet" href="/styles.css" type="text/css"/>
+</head>
+<body>
+<ul id="messages"></ul>
+<form id="form" action="">
+    <input id="m" autocomplete="off" />
+    <button type="submit">Send</button>
+</form>
+</body>
+<script   src="https://code.jquery.com/jquery-2.2.3.min.js"
+          integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo="
+          crossorigin="anonymous"></script>
+<script src="/node_modules/socket.io-client/socket.io.js"></script>
+<script src="/webpage-scripts.js"></script>
+</html>
