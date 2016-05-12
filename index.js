@@ -8,9 +8,8 @@ app.use('/', express.static(__dirname + '/public'));
 io.on('connection', function(socket){
     console.log('a user connected');
 
-    socket.on('chat-message', function(msg){
-        console.log('message: ' + msg);
-        io.emit('recive-message', msg);
+    socket.on('chat-message', function(messageData){
+        io.emit('recive-message', messageData);
     });
 });
 
