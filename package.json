@@ -4,6 +4,8 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "escape-html": "^1.0.3",
+    "express": "^4.15.4",
     "socket.io": "^1.4.6"
   },
   "devDependencies": {},
