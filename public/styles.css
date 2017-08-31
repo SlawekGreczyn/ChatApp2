@@ -37,7 +37,7 @@ form#new-message button {
 #messages {
     list-style-type: none;
     margin: 0;
-    padding: 0;
+    padding: 0 0 50px 0;
 }
 
 #messages li {
@@ -46,6 +46,7 @@ form#new-message button {
     border-radius: 8px;
     padding: 5px 15px;
     position: relative;
+    word-break: break-all;
 }
 
 #messages li .nick-name {

@@ -3,6 +3,7 @@
 
     var name = getName();
     var userId = '';
+    var notify = false;
 
     var $messages = $('#messages');
 
@@ -22,12 +23,19 @@
 
     socket.on('recive-message', function (data) {
         var $message = $('<li/>');
+        var date = new Date(data.createdAt);
 
         if (data.userId === userId) {
             $message.addClass('my-message');
+        } else if (notify) {
+            try {
+                var notification = new Notification('New Message', {
+                    body: 'From ' + data.nick,
+                    vibrate: [200, 100, 200],
+                    icon: 'http://www.iconsfind.com/wp-content/uploads/2013/11/Buzz-Message-outline-icon.png'
+                });
+            } catch(err) {}
         }
-
-        var date = new Date(data.createdAt);
 
         $('<div/>')
             .addClass('nick-name')
@@ -43,6 +51,12 @@
     });
 
     socket.on('user-accepted', function (data) {
+        Notification.requestPermission(function (result) {
+            if (result === 'granted') {
+                notify = true;
+            }
+        });
+        
         userId = data.id;
     });
 
